@@ -16,8 +16,24 @@ def unmotivated():
     label = fn.Label(root, text="search motivation online dude dont ask me", fg="gray")
     label.pack()
 
-def cant_do_nothing():
+def cant_move():
     label = fn.Label(root, text="THATS WHY YOU SHOULD NOT ON YOUR PHONE ALL DAY", fg="red")
     label.pack()
+
+
+#3. LABEL 1 TIMEEEE (man the "1" ruined)
+labels=fn.Label(root, text="How did you do today?", fg="orange", font=("algerian", 20))
+labels.pack(pady=7)
+
+#4. TIME FOR THEEEE BUTTONSSSSSS
+buttons = fn.Button(root, text="😁😁😁", width=30, command=smile)
+buttons.pack(pady=7)
+
+unmotivated_button = fn.Button(root, text="😔😔😔", width=30, command=unmotivated)
+unmotivated_button.pack(pady=7)
+
+cant_move_button = fn.Button(root, text="😴😴😴", width=30, command=cant_move)
+cant_move_button.pack(pady=7)
+
 
 root.mainloop()

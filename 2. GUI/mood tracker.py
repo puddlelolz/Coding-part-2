@@ -8,7 +8,7 @@ root.geometry("500x500")
 
 #2. creating functions for buttons
 def smile():
-    labels.config(text="keep smiling 😁😁", fg="blue")
+    label.config(text="keep smiling 😁😁", fg="blue")
     root.configure(bg="lightblue")
     #this code ^^ will generate a new label every time we click the button
     #labeln = fn.Label(root, text="keep smiling 😁😁", fg="blue")
@@ -16,10 +16,10 @@ def smile():
     #this code ^^ will create a new label every time we click the button
 
 def unmotivated():
-    labels.config(text="search motivation dude dont ask me 😔😔", fg="black")
+    label.config(text="search motivation dude dont ask me 😔😔", fg="black")
     root.configure(bg="lightyellow")
 def cant_move():
-    labels.config(text="NOW PUT YOUR PHONE AWAY", fg="red")
+    label.config(text="NOW PUT YOUR PHONE AWAY", fg="red")
     root.configure(bg="lightgray")
 
 
@@ -36,6 +36,9 @@ unmotivated_button.pack(pady=7)
 
 cant_move_button = fn.Button(root, text="😴😴😴", width=30, command=cant_move)
 cant_move_button.pack(pady=7)
+
+label = fn.Label(root, text="", fg="black", font=("algerian", 15))
+label.pack(pady=20)
 
 
 root.mainloop()

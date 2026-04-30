@@ -11,8 +11,8 @@ import flet as fn #when using flet i need to import it first
 def yes(page: fn.Page): #this is the main function where i will put all my code
     page.theme_mode = fn.ThemeMode.DARK #this how you change the theme to dark mode
 
-    page.window_width = 100 #to change the width
-    page.window_height = 100 #to change the height
+    page.window.width = 500 #to change the width
+    page.window.height = 500 #to change the height
 
     page.title = "intro ahh" #to change the title of the app
 

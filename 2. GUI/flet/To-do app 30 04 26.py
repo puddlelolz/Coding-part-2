@@ -13,12 +13,30 @@ def pt(page: fn.Page):
         value="input what to do here",
         border=fn.InputBorder.OUTLINE#hellooooo
     )
+    def add_task(e):
+        task = fn.Checkbox(label= box.value, value=False)
+        task_list.controls.append(task)
+        box.value = ""
+        page.update()
+
     button = fn.ElevatedButton(
         "add to list",
         bgcolor=fn.Colors.ORANGE_800,
-        color = fn.Colors.RED_900
+        color = fn.Colors.RED_900,
+        on_click= add_task
     )
 
-    page.add(box, button)
+    task_list = fn.Column()
+
+    tabs = fn.Tabs(
+        selected_index=0,
+        tabs=[
+            fn.Tab(text="All"),
+            fn.Tab(text="Complete"),
+            fn.Tab(text="Incomplete"),
+        ],
+    )
+
+    page.add(box, button, tabs, task_list )
     page.update()
 fn.app(target=pt)

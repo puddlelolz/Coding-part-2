@@ -13,30 +13,65 @@ def pt(page: fn.Page):
         value="input what to do here",
         border=fn.InputBorder.OUTLINE#hellooooo
     )
+
+    all_tasks = fn.Column()
+    complete_tasks = fn.Column()
+    incomplete_tasks = fn.Column()
+
+    def update_task_visibility(task: fn.Checkbox):
+        if task.value:
+            if task in incomplete_tasks.controls:
+                incomplete_tasks.controls.remove(task)
+            if task not in complete_tasks.controls:
+                complete_tasks.controls.append(task)
+        else:
+            if task in complete_tasks.controls:
+                complete_tasks.controls.remove(task)
+            if task not in incomplete_tasks.controls:
+                incomplete_tasks.controls.append(task)
+
+    def on_task_change(e):
+        update_task_visibility(e.control)
+        page.update()
+
     def add_task(e):
-        task = fn.Checkbox(label= box.value, value=False)
-        task_list.controls.append(task)
+        task = fn.Checkbox(label=box.value, value=False, on_change=on_task_change)
+        all_tasks.controls.append(task)
+        incomplete_tasks.controls.append(task)
         box.value = ""
         page.update()
 
     button = fn.ElevatedButton(
         "add to list",
-        bgcolor=fn.Colors.ORANGE_800,
-        color = fn.Colors.RED_900,
-        on_click= add_task
+        on_click=add_task
     )
 
-    task_list = fn.Column()
+    three_tabs = [
+        fn.Tab("All"),
+        fn.Tab("Complete"),
+        fn.Tab("Incomplete")
+    ]
 
-    tabs = fn.Tabs(
+    T = fn.Tabs(
         selected_index=0,
-        tabs=[
-            fn.Tab(text="All"),
-            fn.Tab(text="Complete"),
-            fn.Tab(text="Incomplete"),
-        ],
+        length=3,
+        expand=True,
+        content=fn.Column(
+            expand=True,
+            controls=[
+                fn.TabBar(tabs=three_tabs),
+                fn.TabBarView(
+                    expand=True,
+                    controls=[
+                        fn.Column(expand=True, controls=[all_tasks]),
+                        fn.Column(expand=True, controls=[complete_tasks]),
+                        fn.Column(expand=True, controls=[incomplete_tasks]),
+                    ],
+                ),
+            ],
+        ),
     )
 
-    page.add(box, button, tabs, task_list )
+    page.add(box, button, T)
     page.update()
 fn.app(target=pt)

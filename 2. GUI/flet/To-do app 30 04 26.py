@@ -72,6 +72,13 @@ def pt(page: fn.Page):
         ),
     )
 
-    page.add(box, button, T)
+    text = fn.Text(
+        "made by puddle",
+        size=10,
+        color=fn.Colors.ORANGE_900,
+        weight=fn.FontWeight.BOLD
+    )
+
+    page.add(box, button, text, T)
     page.update()
 fn.app(target=pt)

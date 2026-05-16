@@ -81,4 +81,5 @@ def pt(page: fn.Page):
 
     page.add(box, button, text, T)
     page.update()
-fn.app(target=pt)
+fn.app(target=pt) #it runs the app with the native version
+#fn.app(target=pt, view=fn.WEB_BROWSER) #it runs the app with the web version

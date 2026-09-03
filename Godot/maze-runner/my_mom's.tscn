@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bji3upq48r4c0"]
+
+[ext_resource type="Texture2D" uid="uid://wumh1eqfutay" path="res://credit-card.png" id="1_h4dg6"]
+[ext_resource type="Script" uid="uid://ba83ysuf6qlx2" path="res://my_mom's.gd" id="1_vb248"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vb248"]
+size = Vector2(5.690078, 2.4841816)
+
+[node name="money" type="Area2D" unique_id=1445759335]
+position = Vector2(-60, -14)
+script = ExtResource("1_vb248")
+
+[node name="credit card" type="Sprite2D" parent="." unique_id=221229164]
+position = Vector2(-2.3841858e-07, 2.3841858e-07)
+scale = Vector2(0.07518611, 0.06663823)
+texture = ExtResource("1_h4dg6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2015901575]
+scale = Vector2(6.8210826, 9.661128)
+shape = SubResource("RectangleShape2D_vb248")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

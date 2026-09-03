@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bcg2juaphikib"]
+
+[ext_resource type="Texture2D" uid="uid://c4c6y8877jon" path="res://155379350-heinz-tomato-ketchup.png" id="1_6buno"]
+[ext_resource type="Script" uid="uid://dmcnb04thqp1k" path="res://del_monte_enemy.gd" id="1_w77xp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w77xp"]
+radius = 54.0
+height = 232.0
+
+[node name="heinz" type="Area2D" unique_id=910343677]
+scale = Vector2(0.28646708, 0.24444908)
+script = ExtResource("1_w77xp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=276148093]
+position = Vector2(736, 299)
+texture = ExtResource("1_6buno")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=31586368]
+position = Vector2(719, 297)
+shape = SubResource("CapsuleShape2D_w77xp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

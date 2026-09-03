@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://b60c0sv73sruj"]
+
+[ext_resource type="Script" uid="uid://dp5eydxw7khcs" path="res://node_2d.gd" id="1_wtcfe"]
+[ext_resource type="Texture2D" uid="uid://d1kdy2gyqi7wo" path="res://icon.svg" id="2_0e48y"]
+
+[node name="Node2D" type="Node2D" unique_id=1591268656]
+scale = Vector2(1.4711344, 1)
+script = ExtResource("1_wtcfe")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=821776427]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 33.0
+offset_right = 257.0
+offset_bottom = 264.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.083042, 2.7761297)
+metadata/_edit_use_anchors_ = true
+
+[node name="LeftSide" type="VBoxContainer" parent="HBoxContainer" unique_id=126539369]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="NameInput" type="LineEdit" parent="HBoxContainer/LeftSide" unique_id=679713125]
+layout_mode = 2
+placeholder_text = "enter name"
+
+[node name="AgeInput" type="LineEdit" parent="HBoxContainer/LeftSide" unique_id=1755761549]
+layout_mode = 2
+placeholder_text = "enter age"
+
+[node name="PowerInput" type="LineEdit" parent="HBoxContainer/LeftSide" unique_id=2109537463]
+layout_mode = 2
+placeholder_text = "enter superpower"
+
+[node name="PrintButton" type="Button" parent="HBoxContainer/LeftSide" unique_id=404403438]
+layout_mode = 2
+text = "print id card"
+
+[node name="RightSide" type="VBoxContainer" parent="HBoxContainer" unique_id=877918505]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameLabel" type="Label" parent="HBoxContainer/RightSide" unique_id=1058651807]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+
+[node name="AgeLabel" type="Label" parent="HBoxContainer/RightSide" unique_id=1777739817]
+layout_mode = 2
+
+[node name="PowerLabel" type="Label" parent="HBoxContainer/RightSide" unique_id=869472934]
+layout_mode = 2
+
+[node name="ProfilePicture" type="TextureRect" parent="HBoxContainer/RightSide" unique_id=681427827]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+texture = ExtResource("2_0e48y")
+
+[connection signal="pressed" from="HBoxContainer/LeftSide/PrintButton" to="." method="_on_print_button_pressed"]

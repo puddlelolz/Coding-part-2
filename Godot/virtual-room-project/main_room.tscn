@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://4w1xfct46pff"]
+
+[ext_resource type="Script" uid="uid://ypxu1gj7i8i8" path="res://main_room.gd" id="1_77bs5"]
+[ext_resource type="Texture2D" uid="uid://c2k4dbrbdj4nx" path="res://icon.svg" id="1_mi4c6"]
+
+[node name="MainRoom" type="Control" unique_id=65265801]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7424.0
+offset_top = 19712.0
+offset_right = 7424.0
+offset_bottom = 19712.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_77bs5")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1848510232]
+layout_mode = 0
+offset_left = -11679.001
+offset_top = -20788.004
+offset_right = -11639.001
+offset_bottom = -20748.004
+rotation = 0.022346942
+scale = Vector2(196.3278, 157.03908)
+color = Color(1, 0.23529412, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1396816229]
+layout_mode = 0
+offset_left = -7073.0
+offset_top = -19594.0
+offset_right = -6309.0
+offset_bottom = -19457.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "WELCOME TO ELOM NUSK BASE"
+uppercase = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=495061718]
+position = Vector2(-7228, -19550)
+scale = Vector2(-2.2478278, 2.122332)
+texture = ExtResource("1_mi4c6")
+
+[node name="Button" type="Button" parent="." unique_id=244104893]
+layout_mode = 0
+offset_left = -7065.0
+offset_top = -19494.0
+offset_right = -6884.0
+offset_bottom = -19463.0
+text = "spawn nuke for trump
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

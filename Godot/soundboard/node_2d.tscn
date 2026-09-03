@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dc6oprxlyekpo"]
+
+[ext_resource type="Script" uid="uid://umgen1tk73y7" path="res://node_2d.gd" id="1_wtcfe"]
+
+[node name="Node2D" type="Node2D" unique_id=641593620]
+script = ExtResource("1_wtcfe")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1755460837]
+offset_top = 69.0
+offset_right = 1976.0
+offset_bottom = 983.0
+columns = 2
+
+[node name="bone" type="Button" parent="GridContainer" unique_id=1043844753]
+layout_mode = 2
+
+[node name="cat" type="Button" parent="GridContainer" unique_id=100425787]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+
+[node name="death" type="Button" parent="GridContainer" unique_id=1341017042]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+
+[node name="shot" type="Button" parent="GridContainer" unique_id=581375622]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="GridContainer" unique_id=1989890326]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+min_value = -4.0
+max_value = 6.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1232152031]
+
+[connection signal="pressed" from="GridContainer/bone" to="." method="_on_bone_pressed"]
+[connection signal="pressed" from="GridContainer/cat" to="." method="_on_cat_pressed"]
+[connection signal="pressed" from="GridContainer/death" to="." method="_on_death_pressed"]
+[connection signal="pressed" from="GridContainer/shot" to="." method="_on_shot_pressed"]
+[connection signal="value_changed" from="GridContainer/HSlider" to="." method="_on_h_slider_value_changed"]

@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://b4fpyiw7s3i8d"]
+
+[ext_resource type="Texture2D" uid="uid://bkafh5pqnkedk" path="res://strarry.jpg" id="1_sln81"]
+[ext_resource type="Script" uid="uid://bo3f5hc778p31" path="res://player.gd" id="2_leuwj"]
+[ext_resource type="Texture2D" uid="uid://dxsv4fii3hqet" path="res://del monte roket - file.png" id="2_yyf3e"]
+[ext_resource type="PackedScene" uid="uid://bcg2juaphikib" path="res://del monte enemy.tscn" id="4_4fexs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gtaj1"]
+radius = 38.0
+height = 328.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtaj1"]
+size = Vector2(24, 649)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_leuwj"]
+size = Vector2(1225.5, 40)
+
+[node name="space shooter" type="Node2D" unique_id=1013172651]
+position = Vector2(302, 115)
+
+[node name="background farther" type="Parallax2D" parent="." unique_id=928486845]
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(-162, -35)
+repeat_size = Vector2(612, 350)
+autoscroll = Vector2(0, 15)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="background farther" unique_id=581784654]
+texture_repeat = 2
+position = Vector2(443, 332)
+texture = ExtResource("1_sln81")
+
+[node name="near" type="Parallax2D" parent="." unique_id=1770826945]
+scroll_scale = Vector2(0.6, 0.6)
+scroll_offset = Vector2(-1090, -190)
+repeat_size = Vector2(6120, 350)
+autoscroll = Vector2(0, 50)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="near" unique_id=617562096]
+texture_repeat = 2
+position = Vector2(1339, 381)
+texture = ExtResource("1_sln81")
+
+[node name="player" type="CharacterBody2D" parent="." unique_id=1282093988]
+position = Vector2(95, 418)
+scale = Vector2(0.24420863, 0.2589931)
+script = ExtResource("2_leuwj")
+
+[node name="ship" type="Sprite2D" parent="player" unique_id=1439728818]
+position = Vector2(10, -7)
+texture = ExtResource("2_yyf3e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=21067742]
+position = Vector2(13, -9)
+shape = SubResource("CapsuleShape2D_gtaj1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=358617154]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=246431600]
+position = Vector2(-297, 194)
+shape = SubResource("RectangleShape2D_gtaj1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=609847669]
+position = Vector2(305, -124)
+shape = SubResource("RectangleShape2D_leuwj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1839395502]
+position = Vector2(296, 541)
+shape = SubResource("RectangleShape2D_leuwj")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=197321664]
+position = Vector2(854, 202)
+shape = SubResource("RectangleShape2D_gtaj1")
+
+[node name="Node2D" parent="StaticBody2D" unique_id=1717929331 instance=ExtResource("4_4fexs")]
+position = Vector2(12, -80)
+scale = Vector2(0.29128376, 0.28518972)
